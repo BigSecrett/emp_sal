@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utiels.css">
+
+</head>
+<body >
+    <div class="max-width">
+
+        <label class="label hding"> Salary Payrolls</label>
+        
+    <table class="tb-st" border="1px"  cellspaceing=" 5px" cellpadding="5px"> 
+        <form name="calc" onsubmit="return false";>
+            
+            <tr>
+                <td class="tr-st hding" cellpadding="50px" colspan="6">Employee Basic Details</td>
+            </tr>
+            <tr class="tr-st"> 
+                <td rowspan="2">Employee id:</td>
+                <td rowspan="2"><select name="selId">
+                    <option value="0">Select</option>
+                    <option value="i1">01</option>
+                    <option value="i2">02</option>
+                    <option value="i3">03</option>
+                </select></td>
+                <td rowspan="2">Employee Name:</td>
+                <td rowspan="2"><input type="text" name="name"></td>
+                <td rowspan="2">Employee Salary:</td>
+                <td rowspan="2"><input type="text" id="sal"></td>
+            </tr> 
+            <tr><br></tr>
+
+            <tr class="tr-st"> 
+                <td colspan="6">
+                    <!-- <button class="btn" onclick="Add_cal()">Submit  </button> -->
+                    <input type="submit" class="btn" onclick="Add_cal()">
+                    <input class="btn" type="reset" name="reset" id="">
+                </td>
+            </tr> 
+           
+            <tr><br></tr>
+            <tr>
+                <td class="tr-st hding" cellpadding="50px" colspan="6">Employee Allowences</td>
+            </tr>
+           
+            <tr class="tr-st">
+                <td rowspan="2">Traveling Allowences:</td>
+                <td rowspan="2"><input type="text" id="TA" disabled></td>
+                <td rowspan="2">Health Insurence</td>
+                <td rowspan="2"><input type="text" id="HI" disabled></td>
+                <td rowspan="2">Lic:</td>
+                <td rowspan="2"><input type="text" id="LIC" disabled></td>
+            </tr>
+            <tr><br></tr>
+            <tr>
+                <td class="tr-st hding" cellpadding="50px" colspan="6">Employee Deductions</td>
+            </tr>
+           
+            <tr class="tr-st">
+                <!-- <td rowspan="2">Employee Absence:</td>
+                <td rowspan="2"><input type="text" name="EA"></td> -->
+                <td rowspan="2">Provident Fund:</td>
+                <td rowspan="2"><input type="text" id="PF" disabled></td>
+                <td rowspan="2">Tax Deducted at Source:</td>
+                <td rowspan="2"><input type="text" id="TDS" disabled></td>
+            </tr>
+            <tr><br></tr>
+            <tr>
+                <td class="tr-st hding" cellpadding="50px" colspan="6">Salary Informations</td>
+            </tr>
+           
+            <tr class="tr-st">
+                <td rowspan="2">Gross Amount:</td>
+                <td rowspan="2"><input type="text" id="GA" disabled></td>
+                <td rowspan="2">Net Amount:</td>
+                <td rowspan="2"><input type="text" id="NA" disabled></td>
+            </tr>
+        </form>
+    </table>
+</div>
+<br>
+<br>
+<br>
+<hr>
+<script>
+    function Add_cal()
+    {   
+
+        var basic,ta,lic,hi,pf,tds,net,gross;
+        basic = document.getElementById("sal").value;
+        ta = basic*(6/100);
+        hi= basic*(5/100);
+        lic = basic*(9/100);
+        pf = basic*(3/100);
+        tds = basic*(2/100);
+        net = parseInt(basic)+parseInt(ta)+parseInt(lic)+parseInt(hi);
+        gross = net-parseInt(pf)-parseInt(tds);
+        //deducation
+        
+        document.getElementById("sal").value=basic;
+        document.getElementById("TA").value=ta;
+        document.getElementById("HI").value=hi;
+        document.getElementById("LIC").value=lic;
+        document.getElementById("PF").value=pf;
+        document.getElementById("TDS").value=tds;
+        document.getElementById("NA").value=net;
+        document.getElementById("GA").value=gross;
+   }
+</script>
+</body>
+</html>
